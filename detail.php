@@ -43,7 +43,7 @@ document.getElementById("dt").hidden=true;
     <body>
 	<div class="container">
   <div class="jumbotron">
-    <h1 style="text-align:center; font-size: 24px; color:#00FF66">PATIENT DETAILS</h1> 
+    <h1 style="text-align:center; font-size: 24px; color:#00FF66">SIGN UP</h1> 
    <br><br><br>
    
   </div>
@@ -85,7 +85,7 @@ document.getElementById("dt").hidden=true;
     </form>
 	 
     
-  </button>
+  
   </div>
         
       <!--Import jQuery before materialize.js-->
@@ -101,44 +101,19 @@ if (mysqli_connect_errno())
   {
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
+
 if(isset($_POST["submit"]))
 {
-
+session_start();
 $fname=$_POST["first_name"];
-echo $fname;
 $lname=$_POST["last_name"];
-echo $lname;
-$date=$_POST["dob"];
-echo $date;
-$address=$_POST["address"];
-echo $address;
-$city=$_POST["city"];
-echo $city;
-$pcode=$_POST["pcode"];
-echo $pcode;
-$height=$_POST["height"];
-echo $height;
-$weight=$_POST["weight"];
-echo $weight;
-$bgroup=$_POST["bgroup"];
-echo $bgroup;
 $pass=$_POST["pass"];
-echo $pass;
 $email=$_POST["email"];
-echo $email;
-$sql="INSERT INTO patient (first_name,last_name,dob,address,city,postal_code,blood_group,height,weight,password,email) VALUES ('$fname','$lname','$date','$address','$city',$pcode,'$bgroup',$height,$weight,'$pass','$email')";
-if (mysqli_query($conn,$sql)) 
-{
-
-echo'<script> window.location="index.php"; </script> ';
-
-exit();
-}
-else
-{
-echo"fail";
-}
-
+$_SESSION["fname"]=$fname;
+$_SESSION["lname"]=$lname;
+$_SESSION["pass"]=$pass;
+$_SESSION["email"]=$email;
+echo'<script> window.location="detail2.php"; </script> ';
 }
 mysqli_close($conn);
 ?>

@@ -79,8 +79,8 @@ header('location:view.php');
 }
 else
 {
-header('location:index.php');
-echo "fail";
+echo "<br> <br> <h6> check your email and password <h6>";
+
 }
 }
 
