@@ -75,7 +75,7 @@ if($row==1)
 {
 
 echo "sucess";
-header('location:view.php');
+header('location:disp.php');
 }
 else
 {

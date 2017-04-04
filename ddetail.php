@@ -103,7 +103,7 @@
     
   
   </div>
-        
+       
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script type="text/javascript" src="js/materialize.min.js"></script>
@@ -120,6 +120,9 @@ if (mysqli_connect_errno())
   
   if(isset($_POST["submit"]))
 {
+session_start();
+$email= $_SESSION["email"];
+
 $dname=$_POST["dname"];
 $date=$_POST["date"];
 $time=$_POST["time"];
@@ -130,10 +133,10 @@ $ses1=$_POST["ses1"];
 $mname2=$_POST["mname2"];
 $dos2=$_POST["dos2"];
 $ses2=$_POST["ses2"];
-$sql="INSERT INTO details (dname,date,time,disease,mname1,dos1,ses1,mname2,dos2,ses2) VALUES ('$dname','$date','$time','$disease','$mname1',$dos1,'$ses1','$mname2','$dos2','$ses2')";
+$sql="INSERT INTO details (dname,date,time,disease,mname1,dos1,ses1,mname2,dos2,ses2,email) VALUES ('$dname','$date','$time','$disease','$mname1',$dos1,'$ses1','$mname2','$dos2','$ses2','$email')";
 if (mysqli_query($conn,$sql)) 
 {
-	echo 'Success';
+	echo'<script> window.location="disp.php"; </script> ';
 }
 else
 {
