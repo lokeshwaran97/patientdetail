@@ -33,7 +33,7 @@
   </div>
   </div>  
   <div class="row container">
-    <form class="col s12" style="font-weight:bold"  method="post" action="detail.php">
+    <form class="col s12" style="font-weight:bold"  method="post" action="ddetail.php">
       <div class="row">
         <div class="input-field col s12">
           <input id="dname" name="dname" type="text" class="validate">
@@ -110,3 +110,35 @@
 
 </body>
 </html>
+<?php
+$conn=mysqli_connect("localhost","root","","track")
+or die("cannot connected");
+if (mysqli_connect_errno())
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
+  
+  if(isset($_POST["submit"]))
+{
+$dname=$_POST["dname"];
+$date=$_POST["date"];
+$time=$_POST["time"];
+$disease=$_POST["disease"];
+$mname1=$_POST["mname1"];
+$dos1=$_POST["dos1"];
+$ses1=$_POST["ses1"];
+$mname2=$_POST["mname2"];
+$dos2=$_POST["dos2"];
+$ses2=$_POST["ses2"];
+$sql="INSERT INTO details (dname,date,time,disease,mname1,dos1,ses1,mname2,dos2,ses2) VALUES ('$dname','$date','$time','$disease','$mname1',$dos1,'$ses1','$mname2','$dos2','$ses2')";
+if (mysqli_query($conn,$sql)) 
+{
+	echo 'Success';
+}
+else
+{
+	echo 'Fail';
+}
+}
+mysqli_close($conn);
+?>
