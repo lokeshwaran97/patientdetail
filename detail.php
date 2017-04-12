@@ -5,9 +5,9 @@
       <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-<!-- Compiled and minified CSS -->
+<!<c-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
-
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
         
@@ -54,7 +54,7 @@ document.getElementById("dt").hidden=true;
     <form class="col s12" style="font-weight:bold"  method="post" action="detail.php">
       <div class="row">
         <div class="input-field col s6">
-          <input id="first_name" name="first_name" type="text" class="validate">
+          <input id="first_name" name="first_name" type="text" class="validate" required>
          <label class="active" for="first_name">First Name</label>
         </div>
         <div class="input-field col s6">
@@ -66,14 +66,14 @@ document.getElementById("dt").hidden=true;
 	  
       <div class="row">
         <div class="input-field col s12">
-          <input id="pass" name="pass" type="password" class="validate">
+          <input id="pass" name="pass" type="password" class="validate" required>
           <label  class="active" for="password">Set New Password</label>
         </div>
 		
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input id="email" name="email" type="email" class="validate">
+          <input id="email" name="email" type="email" class="validate" required>
           <label class="active" for="email">Email</label>
         </div>
       </div>

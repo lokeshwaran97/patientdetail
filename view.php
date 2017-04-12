@@ -10,7 +10,7 @@
 
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
-        
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>    
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	  <script>
@@ -25,7 +25,16 @@
   </style>
   </head>
   <body>
-  
+  <nav>
+    <div class="nav-wrapper">
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+	    <li><a href="disp.php">HOME</a></li>
+        <li><a href="ddetail.php">Treatment</a></li>
+		<li><a href="index.php">LogOut</a></li>
+		
+      </ul>
+    </div>
+  </nav>
   <div class="container">
   <div class="jumbotron">
     <h1 style="text-align:center; font-size: 24px; color:#00FF66">YOUR DETAILS</h1> 
@@ -40,7 +49,6 @@ $conn=mysqli_connect("localhost","root","","track")
 or die("cannot connected");
 session_start();
 $email= $_SESSION["email"];
- 
 $sel="SELECT * FROM patient WHERE email='$email'";
 $sql=mysqli_query($conn,$sel);
 $row=mysqli_fetch_array($sql);
@@ -59,3 +67,4 @@ echo"<tr><td>EMAIL</td><td>".$row['email']."</td></tr>";
 </table>
 </body>
 </html>
+	
