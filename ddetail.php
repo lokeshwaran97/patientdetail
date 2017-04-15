@@ -94,6 +94,7 @@
          <label class="active" for="ses2">Sessions</label>
         </div>
         </div>
+		<input type="file" name="image">
 		<button  type="submit" name="submit" value="submit">Submit
 		</button>
         
@@ -133,6 +134,7 @@ $ses1=$_POST["ses1"];
 $mname2=$_POST["mname2"];
 $dos2=$_POST["dos2"];
 $ses2=$_POST["ses2"];
+
 $sql="INSERT INTO details (dname,date,time,disease,mname1,dos1,ses1,mname2,dos2,ses2,email) VALUES ('$dname','$date','$time','$disease','$mname1',$dos1,'$ses1','$mname2','$dos2','$ses2','$email')";
 if (mysqli_query($conn,$sql)) 
 {

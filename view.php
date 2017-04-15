@@ -52,7 +52,7 @@ $email= $_SESSION["email"];
 $sel="SELECT * FROM patient WHERE email='$email'";
 $sql=mysqli_query($conn,$sel);
 $row=mysqli_fetch_array($sql);
-
+echo"<img src=get.php?email=$email>";
 echo"<tr><td>FIRSTNAME</td><td>".$row['first_name']."</td></tr>";
 echo"<tr><td>LASTNAME</td><td>".$row['last_name']."</td></tr>";
 echo"<tr><td>DOB</td><td>".$row['dob']."</td></tr>";

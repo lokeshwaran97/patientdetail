@@ -33,7 +33,7 @@
   </div>
   </div>  
 <div class="row container">
-    <form class="col s12" style="font-weight:bold"  method="post" action="detail2.php">
+    <form class="col s12" style="font-weight:bold"  method="post" action="detail2.php" enctype="multipart/form-data">
  <div class="row">
         <div class="input-field col s12">
          
@@ -81,7 +81,7 @@
           <label class="active" for="bgroup" >Blood Group</label>
         </div>
       </div>
-	  
+	  <input type="file" name="image" />
 	  <button  type="submit" name="submit" value="submit">Submit
     
   </button>
@@ -120,18 +120,32 @@ $height=$_POST["height"];
 echo $height;
 $weight=$_POST["weight"];
 echo $weight;
+
 $bgroup=$_POST["bgroup"];
 echo $bgroup;
 $pass=$_SESSION["pass"];
 echo $pass;
 $email=$_SESSION["email"];
 echo $email;
-session_destroy();
-$sql="INSERT INTO patient (first_name,last_name,dob,address,city,postal_code,blood_group,height,weight,password,email) VALUES ('$fname','$lname','$date','$address','$city',$pcode,'$bgroup',$height,$weight,'$pass','$email')";
+if(getimagesize($_FILES['image'][tmp_name])==FALSE)
+			{
+				echo "please select an image";
+			}
+			else
+			{
+				$image=addslashes($_FILES['image']['tmp_name']);
+				$name=addslashes($_FILES['image']['name']);
+				$image=file_get_contents($image);
+				$image=base64_encode($image);
+				
+			
+			
+$sql="INSERT INTO patient (first_name,last_name,dob,address,city,postal_code,blood_group,height,weight,password,email,image) VALUES ('$fname','$lname','$date','$address','$city',$pcode,'$bgroup',$height,$weight,'$pass','$email','$image')";
 if (mysqli_query($conn,$sql)) 
 {
 
-echo'<script> window.location="index.php"; </script> ';
+
+echo'<script> window.location="pic.php"; </script> ';
 
 exit();
 }
@@ -140,6 +154,7 @@ else
 echo"fail";
 }
 
+}
 }
 mysqli_close($conn);
 ?>
