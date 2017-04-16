@@ -28,7 +28,7 @@
   <nav>
     <div class="nav-wrapper">
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-	    <li><a href="disp.php">HOME</a></li>
+	    <li ><a href="disp.php">HOME</a></li>
         <li><a href="ddetail.php">Treatment</a></li>
 		<li><a href="index.php">LogOut</a></li>
 		
@@ -49,6 +49,31 @@ $conn=mysqli_connect("localhost","root","","track")
 or die("cannot connected");
 session_start();
 $email= $_SESSION["email"];
+
+		
+			
+					displayimage();
+		
+					function displayimage()
+				{
+				
+		         $email=$_SESSION["email"];
+					$con=mysql_connect("localhost","root","");
+					mysql_select_db("track",$con);
+					$qry="select * from patient where email='$email'";
+					$result=mysql_query($qry,$con);
+					while($row=mysql_fetch_array($result))
+					{
+						echo '<div class="row"  style="text-align:center"> <img height="300" width="300" src="data:image;base64,'.$row[11].' "> </div> ';
+					}
+					
+				}
+				
+				
+				
+				
+				
+		
 $sel="SELECT * FROM patient WHERE email='$email'";
 $sql=mysqli_query($conn,$sel);
 $row=mysqli_fetch_array($sql);

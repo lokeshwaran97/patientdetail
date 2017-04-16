@@ -37,8 +37,8 @@
  <div class="row">
         <div class="input-field col s12">
          
-          <input id="dob" name="dob" type="text" class="validate" >
-          <label class="active" for="dob" >DOB(DD/MM/YYYY)</label>
+          <input id="dob" name="dob" type="date" class="validate" >
+          <label class="active" for="dob" >DOB(MM/DD/YYYY)</label>
 		 
         </div>
       </div>
@@ -81,7 +81,29 @@
           <label class="active" for="bgroup" >Blood Group</label>
         </div>
       </div>
-	  <input type="file" name="image" />
+	  <div class="row">
+	  <div class=" input-field col s4">
+	  <p>GENDER</p>
+	     <p>
+      <input class="with-gap" name="gender" type="radio" id="test1" value="male"  />
+      <label for="test1">male</label>
+    </p>
+    <p>
+      <input  class="with-gap" name="gender" type="radio" id="test2"  value="female"/>
+      <label for="test2">female</label>
+    </p>
+    <p>
+      <input class="with-gap" name="gender" type="radio" id="test3" value="other"  />
+      <label for="test3">other</label>
+    </p>
+	</div>
+	<div class="input-field col s4">
+	 <input type="file" name="image" />
+	 </div>
+    </div>
+	
+  
+	 
 	  <button  type="submit" name="submit" value="submit">Submit
     
   </button>
@@ -123,6 +145,8 @@ echo $weight;
 
 $bgroup=$_POST["bgroup"];
 echo $bgroup;
+$gender=$_POST["gender"];
+
 $pass=$_SESSION["pass"];
 echo $pass;
 $email=$_SESSION["email"];
@@ -140,12 +164,12 @@ if(getimagesize($_FILES['image'][tmp_name])==FALSE)
 				
 			
 			
-$sql="INSERT INTO patient (first_name,last_name,dob,address,city,postal_code,blood_group,height,weight,password,email,image) VALUES ('$fname','$lname','$date','$address','$city',$pcode,'$bgroup',$height,$weight,'$pass','$email','$image')";
+$sql="INSERT INTO patient (first_name,last_name,dob,address,city,postal_code,blood_group,height,weight,password,email,image,gender) VALUES ('$fname','$lname','$date','$address','$city',$pcode,'$bgroup',$height,$weight,'$pass','$email','$image','$gender')";
 if (mysqli_query($conn,$sql)) 
 {
 
 
-echo'<script> window.location="pic.php"; </script> ';
+echo'<script> window.location="view.php"; </script> ';
 
 exit();
 }

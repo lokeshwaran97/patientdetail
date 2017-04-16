@@ -41,14 +41,13 @@
         </div>
 		</div>
 		<div class="row">
-        <div class="input-field col s12">
-          <input id="date" name="date" type="text" class="validate">
+        <div class="input-field col s6">
+          <input id="date" name="date" type="date" class="validate">
          <label class="active" for="date">Date</label>
         </div>
-		</div>
-		<div class="row">
-        <div class="input-field col s12">
-          <input id="time" name="time" type="text" class="validate">
+		
+        <div class="input-field col s6">
+          <input id="time" name="time" type="time" class="validate">
          <label class="active" for="time">Time</label>
         </div>
 		</div>
