@@ -45,7 +45,7 @@ $email= $_SESSION["email"];
 <nav>
     <div class="nav-wrapper">
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="view.php">Profile</a></li>
+        <li><a href="profile.php">Profile</a></li>
         <li><a href="ddetail.php">Treatment</a></li>
 		<li><a href="index.php">LogOut</a></li>
       </ul>

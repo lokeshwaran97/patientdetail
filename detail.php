@@ -1,99 +1,55 @@
 <!DOCTYPE html>
-  <html>
-    <head>
-      <!--Import Google Icon Font-->
-      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-<!<c-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
-        
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<script>
-		   $(document).ready(function() {
-    Materialize.updateTextFields();
-  });
-  function mydate()
-{
-  //alert("");
-document.getElementById("dt").hidden=false;
-document.getElementById("ndt").hidden=true;
-}
-function mydate1()
-{
- d=new Date(document.getElementById("dt").value);
-dt=d.getDate();
-mn=d.getMonth();
-mn++;
-yy=d.getFullYear();
-document.getElementById("ndt").value=dt+"/"+mn+"/"+yy
-document.getElementById("ndt").hidden=false;
-document.getElementById("dt").hidden=true;
-}
-   </script>
-   <style>
-   #dt{text-indent: -500px;height:25px; width:200px;}
-   </style>
-    </head>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body>
+<br>
+<br>
+<br>
+<br>
+<div style="margin-left:30%; margin-right:30%">
+<form action="detail.php" method="post" class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin" >
+<h2 class="w3-center">SIGNUP</h2>
+ 
+<div class="w3-row w3-section">
+  <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+    <div class="w3-rest">
+      <input class="w3-input w3-border" name="first_name" type="text" placeholder="First Name">
+    </div>
+</div>
 
-    <body>
-	<div class="container">
-  <div class="jumbotron">
-    <h1 style="text-align:center; font-size: 24px; color:#00FF66">SIGN UP</h1> 
-   <br><br><br>
-   
-  </div>
-  </div>  
-  
-  
-	<div class="row container">
-    <form class="col s12" style="font-weight:bold"  method="post" action="detail.php">
-      <div class="row">
-        <div class="input-field col s6">
-          <input id="first_name" name="first_name" type="text" class="validate" required>
-         <label class="active" for="first_name">First Name</label>
-        </div>
-        <div class="input-field col s6">
-          <input id="last_name" name="last_name" type="text" class="validate">
-          <label class="active" for="last_name" >Last Name</label>
-        </div>
-      </div>
-      
-	  
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="pass" name="pass" type="password" class="validate" required>
-          <label  class="active" for="password">Set New Password</label>
-        </div>
-		
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="email" name="email" type="email" class="validate" required>
-          <label class="active" for="email">Email</label>
-        </div>
-      </div>
-	   <button  type="submit" name="submit" value="submit">Submit
-    
-  </button>
-        
-     
-    </form>
-	 
-    
-  
-  </div>
-        
-      <!--Import jQuery before materialize.js-->
-      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      <script type="text/javascript" src="js/materialize.min.js"></script>
-    </body>
-  </html>
-  
+<div class="w3-row w3-section">
+  <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+    <div class="w3-rest">
+      <input class="w3-input w3-border" name="last_name" type="text" placeholder="Last Name">
+    </div>
+</div>
+
+<div class="w3-row w3-section">
+  <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-envelope-o"></i></div>
+    <div class="w3-rest">
+      <input class="w3-input w3-border" name="email" type="email" placeholder="Email">
+    </div>
+</div>
+
+
+<div class="w3-row w3-section">
+  <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-pencil"></i></div>
+    <div class="w3-rest">
+      <input class="w3-input w3-border" name="pass" type="password" placeholder="password">
+    </div>
+</div>
+
+<p class="w3-center">
+<button class="w3-button w3-section w3-blue w3-ripple" type="submit" name="submit" value="submit"> submit </button>
+</p>
+</form>
+</div>
+</body>
+</html> 
+
  <?php 
 $conn=mysqli_connect("localhost","root","","track")
 or die("cannot connected");
